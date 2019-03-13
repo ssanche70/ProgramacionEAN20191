@@ -141,10 +141,19 @@ def mitad_doble(num1,num2):
     'Si es el doble de un impar'
     >>> mitad_doble(7,15)
     'No es el doble de un impar'
+    >>> mitad_doble('hola',5)
+    Traceback (most recent call last):
+    ..
+    TypeError: No es valido
+    >>> mitad_doble(4,'jl')
+    Traceback (most recent call last):
+    ..
+    TypeError: No es valido
 
     """
-
-    if num1 % 2 != 0 and num1*2 == num2:
+    if str == type(num1) or str == type(num2):
+        raise TypeError('No es valido')
+    elif num1 % 2 != 0 and num1*2 == num2:
         return 'Si es el doble de un impar'
     else:
         return 'No es el doble de un impar'
@@ -166,10 +175,22 @@ def cuadrado_primero(num1,num2):
     'Segundo es menor al cuadrado del primero'
     >>> cuadrado_primero(2,5)
     'Segundo es mayor al cuadrado del primero'
+    >>> cuadrado_primero(-2,4)
+    'Segundo cuadrado del primero'
+    >>> cuadrado_primero('q',3)
+    Traceback (most recent call last):
+    ..
+    TypeError: No es valido
+    >>> cuadrado_primero(3,'i')
+    Traceback (most recent call last):
+    ..
+    TypeError: No es valido
 
     """
 
-    if num1**2 == num2:
+    if str == type(num1) or str == type(num2):
+        raise TypeError('No es valido')
+    elif num1**2 == num2:
         return 'Segundo cuadrado del primero'
     elif num1**2 > num2:
         return 'Segundo es menor al cuadrado del primero'
@@ -192,10 +213,16 @@ def es_primo(num):
     Traceback (most recent call last):
     ..
     TypeError: No es valido
+    >>> es_primo(9)
+    Traceback (most recent call last):
+    ..
+    TypeError: No es valido
 
     """
 
     if num < 2:
+        raise TypeError('No es valido')
+    elif num >= 9:
         raise TypeError('No es valido')
     elif num == 2:
         return 'Es primo'
@@ -213,6 +240,10 @@ def billetes_verdes(cant):
 
     >>> billetes_verdes('434')
     '2 billetes de 200 1 billete de 20 euros 1 billete de 10 euros 2 monedas de 2 euros'
+    >>> billetes_verdes('626')
+    '3 billetes de 200 1 billete de 20 euros 3 monedas de 2 euros'
+    >>> billetes_verdes('1298')
+    '6 billetes de 200 4 billete de 20 euros 1 billete de 10 euros 4 monedas de 2 euros'
 
     """
 
